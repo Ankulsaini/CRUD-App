@@ -1,0 +1,47 @@
+{{>header}}
+<title>CRUD App</title>
+
+{{>navbar}}
+<div class="container-fluid center">
+    <p class="background text-light text-center p-2 my-2">All Employee Record</p>
+    {{#if data.length}}
+    <div class="table-responsive">
+        <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>EMAIL</th>
+                <th>PHONE</th>
+                <th>DESIGNATION</th>
+                <th>SALARY</th>
+                <th>CITY</th>
+                <th>STATE</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each data}}
+            <tr>
+                <td>{{_id}}</td>
+                <td>{{name}}</td>
+                <td>{{email}}</td>
+                <td>{{number}}</td>
+                <td>{{dsg}}</td>
+                <td>{{salary}}</td>
+                <td>{{city}}</td>
+                <td>{{state}}</td>
+                <td><a href="/edit/{{_id}}" class="btn btn-sm btn-primary "><span class="material-symbols-outlined">edit</span></a></td>
+                <td><a href="/delete/{{_id}}" class="btn btn-sm btn-danger"><span class="material-symbols-outlined">delete_forever</span></a></td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    </div>
+{{else}}
+<p class="text-danger text-center">No More Data Found !</p>
+{{/if}}
+</div>
+
+{{>footer}}
